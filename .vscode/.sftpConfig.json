@@ -1,0 +1,25 @@
+{
+    "host": "115.29.17.166",
+    "port": 22,
+    "username": "root",
+    "password": "W88Wlvonce",
+    "protocol": "sftp",
+    "agent": null,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "passive": false,
+    "interactiveAuth": false,
+    "remotePath": "/root/my-rpc/classbuilder/",
+    "uploadOnSave": false,
+    "syncMode": "update",
+    "watcher": {
+        "files": false,
+        "autoUpload": false,
+        "autoDelete": false
+    },
+    "ignore": [
+        "**/.vscode/**",
+        "**/.git/**",
+        "**/.DS_Store"
+    ]
+}
