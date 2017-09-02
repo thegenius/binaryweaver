@@ -17,9 +17,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.testng.Assert.*;
 
 import com.lvonce.binaryweaver.adapters.*;
+import com.lvonce.binaryweaver.prepares.*;
 
-public class ProxyGeneratorTest {
-    private static Logger logger = LoggerFactory.getLogger(ProxyGeneratorTest.class);
+public class ProxyTest {
+    private static Logger logger = LoggerFactory.getLogger(ProxyTest.class);
 
     @Test
     public void testPrint() {
@@ -27,7 +28,7 @@ public class ProxyGeneratorTest {
         // assertNotNull(classData);
         // byte[] newClassData = Utils.transformClass(classData, DelegateMethodAdapter.class, "ProxyTest");
         // Foo proxy = (Foo) BinaryClassUtil.buildInstance(newClassData, new Class<?>[] { int.class }, 23);
-        Class<?> classType = ProxyGenerator.genPrxoyClass("com.lvonce.binaryweaver.FooClass", "ProxyTest");
+        Class<?> classType = Proxy.createClass("com.lvonce.binaryweaver.FooClass", "ProxyTest");
         Foo proxy = (Foo) BinaryClassUtil.constructInstance(classType, new Class<?>[] { int.class }, 23);
         assertNotNull(proxy);
 
