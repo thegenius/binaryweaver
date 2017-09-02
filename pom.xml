@@ -23,9 +23,9 @@
 
  	<scm>
         <tag>master</tag>
-        <url>git@github.com:thegenius/hera.git</url>
-        <connection>scm:git:git@github.com:thegenius/hera.git</connection>
-        <developerConnection>scm:git:git@github.com:thegenius/hera.git</developerConnection>
+        <url>git@github.com:thegenius/binaryweaver.git</url>
+        <connection>scm:git:git@github.com:thegenius/binaryweaver.git</connection>
+        <developerConnection>scm:git:git@github.com:thegenius/binaryweaver.git</developerConnection>
     </scm>
 
     <developers>
