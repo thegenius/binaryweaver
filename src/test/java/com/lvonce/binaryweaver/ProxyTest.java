@@ -28,7 +28,7 @@ public class ProxyTest {
         // assertNotNull(classData);
         // byte[] newClassData = Utils.transformClass(classData, DelegateMethodAdapter.class, "ProxyTest");
         // Foo proxy = (Foo) BinaryClassUtil.buildInstance(newClassData, new Class<?>[] { int.class }, 23);
-        Class<?> classType = Proxy.createClass("com.lvonce.binaryweaver.FooClass", "ProxyTest");
+        Class<?> classType = Proxy.createClass("com.lvonce.binaryweaver.prepares.FooClass", "ProxyTest");
         Foo proxy = (Foo) BinaryClassUtil.constructInstance(classType, new Class<?>[] { int.class }, 23);
         assertNotNull(proxy);
 

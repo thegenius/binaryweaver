@@ -1,4 +1,4 @@
-package com.lvonce.binaryweaver;
+package com.lvonce.binaryweaver.prepares;
 
     public class FooClass implements Foo {
         private int fieldA;

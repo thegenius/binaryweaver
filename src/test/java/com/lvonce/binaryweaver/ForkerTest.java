@@ -16,8 +16,7 @@ public class ForkerTest {
     @Test
     public void forkRouterTest() {
         try {
-            com.lvonce.binaryweaver.prepares.Forker dispatcher = RouterGenerator
-                    .getForkRouter(com.lvonce.binaryweaver.prepares.Forker.class, new Handler());
+            IForker dispatcher = Forker.create(IForker.class, new Handler());
             logger.info("fork test begin");
             //dispatcher.call("func1", "()V");
             //dispatcher.call("func2", "(I)V", 23);

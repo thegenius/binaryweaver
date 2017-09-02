@@ -1,5 +1,5 @@
-package com.lvonce.binaryweaver;
-
+package com.lvonce.binaryweaver.prepares;
+import com.lvonce.binaryweaver.Reloadable;
 public class FooProxy implements Foo, Reloadable<FooClass> {
     private FooClass foo;
 

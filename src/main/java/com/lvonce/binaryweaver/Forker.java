@@ -18,7 +18,7 @@ import static com.lvonce.binaryweaver.ASMInsnMapper.*;
 
 public class Forker {
 
-    public static <T, E> T getForkRouter(Class<T> dispatcherInterface, E provider) {
+    public static <T, E> T create(Class<T> dispatcherInterface, E provider) {
         String providerClassName = provider.getClass().getName().replace('.', '/');
         String routerName = providerClassName + UUID.randomUUID().toString().replace('-', '_');
         String dispatcherName = dispatcherInterface.getName().replace('.', '/');
