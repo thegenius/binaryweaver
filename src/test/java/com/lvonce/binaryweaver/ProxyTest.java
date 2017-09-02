@@ -22,6 +22,8 @@ import com.lvonce.binaryweaver.prepares.*;
 public class ProxyTest {
     private static Logger logger = LoggerFactory.getLogger(ProxyTest.class);
 
+
+    @SuppressWarnings("unchecked")
     @Test
     public void testPrint() {
         // byte[] classData = Utils.getClassBytes("com.lvonce.binaryweaver.FooClass");

@@ -17,6 +17,7 @@ public class Joiner {
         return (T) create(interfaceType, provider, "call");
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T create(Class<T> interfaceType, Object provider, String funcName) throws NoSuchMethodException {
         String interfaceName = interfaceType.getName().replace('.', '/');
         String routerName = interfaceName + UUID.randomUUID().toString().replace('-', '_');

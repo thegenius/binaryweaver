@@ -57,12 +57,12 @@ public class BinaryClassUtil {
 	}
 
 	public static Object newInstance(byte[] bytesOfClass, Object... args) {
-		logger.debug("newInstance({}, {})", bytesOfClass, args);
+		logger.debug("newInstance({}, {})", bytesOfClass.length, args);
 		return createInstance(defineClass(bytesOfClass), args);
 	}
 
 	public static Object buildInstance(byte[] bytesOfClass, Class<?>[] paramTypes, Object... args) {
-		logger.debug("newInstance({}, {})", bytesOfClass, args);
+		logger.debug("newInstance({}, {})", bytesOfClass.length, args);
 		Class<?> classType = new ClassLoader() {
 			public Class<?> defineClass(byte[] bytes) {
 				return super.defineClass(null, bytes, 0, bytes.length);
