@@ -168,7 +168,6 @@ public class ASMInsnMapper {
 			mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Short", "shortValue", "()I", false);
 			return;
 		case "int":
-			;
 			mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Integer", "intValue", "()I", false);
 			return;
 		case "long":

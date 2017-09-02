@@ -18,19 +18,17 @@ import static org.testng.Assert.*;
 
 import com.lvonce.binaryweaver.adapters.*;
 
-public class ClassPrinterTest {
-    private static Logger logger = LoggerFactory.getLogger(ClassPrinterTest.class);
+public class ProxyGeneratorTest {
+    private static Logger logger = LoggerFactory.getLogger(ProxyGeneratorTest.class);
 
     @Test
     public void testPrint() {
-        // InputStream istream = this.getClass().getClassLoader().getResourceAsStream("FooClass.class");
-        // assertNotNull(istream);
-        // byte[] classData = Utils.streamToByteArray(istream);
-        byte[] classData = Utils.getClassBytes("com.lvonce.binaryweaver.FooClass");
-        assertNotNull(classData);
-
-        byte[] newClassData = Utils.transformClass(classData, DelegateMethodAdapter.class, "ProxyTest");
-        Foo proxy = (Foo) BinaryClassUtil.buildInstance(newClassData, new Class<?>[] { int.class }, 23);
+        // byte[] classData = Utils.getClassBytes("com.lvonce.binaryweaver.FooClass");
+        // assertNotNull(classData);
+        // byte[] newClassData = Utils.transformClass(classData, DelegateMethodAdapter.class, "ProxyTest");
+        // Foo proxy = (Foo) BinaryClassUtil.buildInstance(newClassData, new Class<?>[] { int.class }, 23);
+        Class<?> classType = ProxyGenerator.genPrxoyClass("com.lvonce.binaryweaver.FooClass", "ProxyTest");
+        Foo proxy = (Foo) BinaryClassUtil.constructInstance(classType, new Class<?>[] { int.class }, 23);
         assertNotNull(proxy);
 
         proxy.func1();
@@ -41,7 +39,7 @@ public class ClassPrinterTest {
         proxy2.__setReloadTarget__(null);
         // proxy.func1();
 
-        Utils.writeToFile("ProxyTest.class", newClassData);
+        //Utils.writeToFile("ProxyTest.class", newClassData);
     }
 
 }

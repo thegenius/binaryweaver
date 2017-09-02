@@ -14,8 +14,12 @@ public class ProxyGenerator {
 
 	public static Class<?> genPrxoyClass(String originClassName, String proxyClassName) {
         byte[] classData = Utils.getClassBytes(originClassName);
-		byte[] newClassData = Utils.transformClass(classData, DelegateMethodAdapter.class, proxyClassName);
+		byte[] newClassData = genProxyClass(classData, proxyClassName);
 		return BinaryClassUtil.defineClass(newClassData);
 	}
 
+	public static byte[] genProxyClass(byte[] originClassBytes, String proxyClassName) {
+		byte[] newClassData = Utils.transformClass(originClassBytes, DelegateMethodAdapter.class, proxyClassName);
+		return newClassData;
+	}
 }

@@ -13,14 +13,18 @@ public class BinaryClassUtil {
 	private static Logger logger = LoggerFactory.getLogger(BinaryClassUtil.class);
 
 	public static <T> T constructInstance(Class<T> classType, Class<?>[] paramTypes, Object... args) {
-		logger.debug("constructInstance({}, {}, {})", classType.toString(), paramTypes.toString(), args.toString());
+		logger.debug("constructInstance({}, {}, {})", classType, paramTypes, args);
 		try {
-			Constructor<T> constructor = classType.getDeclaredConstructor(paramTypes);
-			return constructor.newInstance(args);
+			if (paramTypes == null) {
+				return classType.newInstance();
+			} else {
+				Constructor<T> constructor = classType.getDeclaredConstructor(paramTypes);
+				return constructor.newInstance(args);
+			}
 		} catch (InstantiationException | IllegalAccessException | SecurityException | InvocationTargetException
 				| NoSuchMethodException e) {
 			e.printStackTrace();
-			logger.debug("constructInstance({}, {}, {}): {}", classType.toString(), paramTypes.toString(), args.toString(), e.getMessage());
+			logger.debug("constructInstance({}, {}, {}): {}", classType, paramTypes, args, e.getMessage());
 			return null;
 		}
 	}
@@ -43,7 +47,6 @@ public class BinaryClassUtil {
 		}
 	}
 
-
 	public static Class<?> defineClass(byte[] bytesOfClass) {
 		Class<?> classType = new ClassLoader() {
 			public Class<?> defineClass(byte[] bytes) {
@@ -52,6 +55,7 @@ public class BinaryClassUtil {
 		}.defineClass(bytesOfClass);
 		return classType;
 	}
+
 	public static Object newInstance(byte[] bytesOfClass, Object... args) {
 		logger.debug("newInstance({}, {})", bytesOfClass, args);
 		return createInstance(defineClass(bytesOfClass), args);
