@@ -1,5 +1,6 @@
 build.sh
 run.sh
 stop.sh
+.classpath
 target
 **/target
