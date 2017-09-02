@@ -3,5 +3,7 @@ run.sh
 stop.sh
 .classpath
 .project
+.settings
+.vscode
 target
 **/target
